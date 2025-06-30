@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סיפורה של ממילילי - זיכרונות ממלחמת העולם השנייה</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-weight: 300;
+        }
+
+        .header .date {
+            font-size: 0.9em;
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .source-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .source-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .source-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .document-preview {
+            background: #f8f9fa;
+            border: 2px dashed #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .document-preview:hover {
+            background: #e9ecef;
+        }
+
+        .document-icon {
+            font-size: 3em;
+            color: #4285f4;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(45deg, #2980b9, #3498db);
+        }
+
+        .description {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            color: #7f8c8d;
+        }
+
+        .future-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .future-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .future-content p {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .sources-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+
+        /* Animation for page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .source-card, .header, .future-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .source-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .source-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>סיפורה של ממילילי</h1>
+            <div class="subtitle">זיכרונות ממלחמת העולם השנייה - ראיון עם עמנואל שליט</div>
+            <div class="date">נוצר ב: 2025-06-30 | נערך על ידי: Moyshi</div>
+        </div>
+
+        <div class="sources-grid">
+            <!-- YouTube Video 1 -->
+            <div class="source-card">
+                <h3>🎥 ראיון וידאו ראשון</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/gnxBsWoqVAs" 
+                            title="סיפורה של ממילילי - חלק 1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="description">
+                    ראיון מרתק עם עמנואל שליט על זיכרונותיה של סבתא ממילילי ממלחמת העולם השנייה.
+                </div>
+            </div>
+
+            <!-- YouTube Video 2 -->
+            <div class="source-card">
+                <h3>🎥 ראיון וידאו שני</h3>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/zKVCEpt154k" 
+                            title="סיפורה של ממילילי - חלק 2"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="description">
+                    המשך הראיון המרגש על חייה וזיכרונותיה של ממילילי.
+                </div>
+            </div>
+
+            <!-- Google Docs Document -->
+            <div class="source-card">
+                <h3>📄 מסמך גוגל דוקס</h3>
+                <div class="document-preview">
+                    <div class="document-icon">📝</div>
+                    <div class="description">
+                        מסמך מפורט הכולל את כל הפרטים והזיכרונות מהראיון עם עמנואל שליט.
+                    </div>
+                </div>
+                <a href="https://docs.google.com/document/d/1IucqC7F-1OgIG3sMrLxLiZyC84VBT3G6JSa8_cFAU2o" 
+                   target="_blank" class="btn">
+                    צפייה במסמך
+                </a>
+            </div>
+        </div>
+
+        <!-- Future Content Section -->
+        <div class="future-content">
+            <h3>🔮 תכנים עתידיים</h3>
+            <p>בעתיד יתווספו כאן עוד מקורות וחומרים על סיפורה המרגש של ממילילי...</p>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 - ארכיון זיכרונות משפחתי | נוצר באהבה לזכר ממילילי</p>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
